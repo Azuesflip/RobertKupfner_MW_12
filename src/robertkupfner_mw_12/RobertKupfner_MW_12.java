@@ -32,18 +32,18 @@ public class RobertKupfner_MW_12
         //Scanner declarations for inputs and outputs
         Scanner inputFile = input_File(INPUT_FILE);
         Scanner inputFile2 = input_File(INPUT_FILE);
-        PrintWriter outputFile = outputPrintFile(OUTPUT_FILE);
-        outputFile.print(inputStrings(inputFile));
-        
-        //Class method set-up
-        ArrayList<HoldingClass> students = loopStudents(inputFile2);
-        
-        //Method calls to print to output file
-        outputFile.println(heading());
-        outputFile.println(outputBody(students));
-        outputFile.print(outputFooter(inputLines (students), gpaAverage(students), 
-                                                           totalCredits(students)));
-        outputFile.close();
+        try (PrintWriter outputFile = outputPrintFile(OUTPUT_FILE)) {
+            outputFile.print(inputStrings(inputFile));
+            
+            //Class method set-up
+            ArrayList<HoldingClass> students = loopStudents(inputFile2);
+            
+            //Method calls to print to output file
+            outputFile.println(heading());
+            outputFile.println(outputBody(students));
+            outputFile.print(outputFooter(inputLines (students), gpaAverage(students),
+                    totalCredits(students)));
+        }
         
     }
     // *******************************************************************

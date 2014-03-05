@@ -15,9 +15,9 @@ package robertkupfner_mw_12;
 public class HoldingClass 
 {
     //Private declarations used within class methods
-    private String name;
-    private double gpa;
-    private int credits;
+    private final String name;
+    private final double gpa;
+    private final int credits;
     
     /** HoldingClass
        Class method holding information from the input file for processing
